@@ -1,0 +1,11 @@
+pylint
+click
+pytest
+pytest-cov
+fastapi
+uvicorn
+black
+wikipedia
+ipdb
+geopy
+git+https://github.com/LIAAD/yake
