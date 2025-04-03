@@ -27,6 +27,7 @@ This module is designed to be used in a simple calculator application.
 This module is part of the mylib package.
 """
 
+
 # Addition function
 def add(a, b):
     """
@@ -36,6 +37,7 @@ def add(a, b):
     :return: Sum of a and b
     """
     return a + b
+
 
 # Subtraction function
 def subtract(a, b):
@@ -47,6 +49,7 @@ def subtract(a, b):
     """
     return a - b
 
+
 # Multiplication function
 def multiply(a, b):
     """
@@ -56,6 +59,7 @@ def multiply(a, b):
     :return: Product of a and b
     """
     return a * b
+
 
 # Division function
 def divide(a, b):
@@ -69,6 +73,7 @@ def divide(a, b):
         raise ValueError("Cannot divide by zero")
     return a / b
 
+
 # Square function
 def square(a):
     """
@@ -76,7 +81,8 @@ def square(a):
     :param a: Number to be squared
     :return: Square of a
     """
-    return a ** 2
+    return a**2
+
 
 # Square root function
 def square_root(a):
@@ -87,7 +93,8 @@ def square_root(a):
     """
     if a < 0:
         raise ValueError("Cannot calculate square root of negative number")
-    return a ** 0.5
+    return a**0.5
+
 
 # Power function
 def power(a, b):
@@ -97,7 +104,8 @@ def power(a, b):
     :param b: Exponent
     :return: a raised to the power of b
     """
-    return a ** b
+    return a**b
+
 
 # Factorial function
 def factorial(n):
@@ -112,6 +120,7 @@ def factorial(n):
         return 1
     return n * factorial(n - 1)
 
+
 # GCD function
 def gcd(a, b):
     """
@@ -124,6 +133,7 @@ def gcd(a, b):
         a, b = b, a % b
     return a
 
+
 # LCM function
 def lcm(a, b):
     """
@@ -134,6 +144,7 @@ def lcm(a, b):
     """
     return abs(a * b) // gcd(a, b)
 
+
 # Prime check function
 def is_prime(n):
     """
@@ -143,10 +154,11 @@ def is_prime(n):
     """
     if n <= 1:
         return False
-    for i in range(2, int(n ** 0.5) + 1):
+    for i in range(2, int(n**0.5) + 1):
         if n % i == 0:
             return False
     return True
+
 
 # Fibonacci function
 def fibonacci(n):
@@ -159,6 +171,7 @@ def fibonacci(n):
     while fib_sequence[-1] < n:
         fib_sequence.append(fib_sequence[-1] + fib_sequence[-2])
     return fib_sequence[:-1]  # Exclude the last number if it exceeds n
+
 
 # Factorial iterative function
 def factorial_iterative(n):
@@ -174,6 +187,7 @@ def factorial_iterative(n):
         result *= i
     return result
 
+
 # Factorial recursive function
 def factorial_recursive(n):
     """
@@ -187,6 +201,7 @@ def factorial_recursive(n):
         return 1
     return n * factorial_recursive(n - 1)
 
+
 # Even check function
 def is_even(n):
     """
@@ -196,6 +211,7 @@ def is_even(n):
     """
     return n % 2 == 0
 
+
 # Odd check function
 def is_odd(n):
     """
@@ -204,6 +220,7 @@ def is_odd(n):
     :return: True if n is odd, False otherwise
     """
     return n % 2 != 0
+
 
 # Prime factorization function
 def prime_factorization(n):
@@ -215,11 +232,10 @@ def prime_factorization(n):
     if n < 2:
         raise ValueError("Cannot calculate prime factorization of number less than 2")
     factors = []
-    for i in range(2, int(n ** 0.5) + 1):
+    for i in range(2, int(n**0.5) + 1):
         while n % i == 0:
             factors.append(i)
             n //= i
     if n > 1:
         factors.append(n)
     return factors
-

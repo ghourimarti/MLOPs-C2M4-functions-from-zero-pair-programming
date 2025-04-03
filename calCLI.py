@@ -1,9 +1,26 @@
 #!/usr/bin/env python3
-from mylib.calc import *
+from mylib.calc import (
+    add,
+    subtract,
+    multiply,
+    divide,
+    square,
+    square_root,
+    power,
+    factorial,
+    gcd,
+    lcm,
+    is_prime,
+    fibonacci,
+    factorial_iterative,
+    factorial_recursive,
+    is_even,
+    is_odd,
+    prime_factorization,
+)
 import click
 
-"""
-This module is part of the mylib package.
+""" This module is part of the mylib package.
 This is a simple calculator CLI that performs basic arithmetic operations.
 - Addition
 - Subtraction
@@ -24,10 +41,11 @@ This is a simple calculator CLI that performs basic arithmetic operations.
 - prime_factorization
 """
 
+
 @click.group()
 def cli():
     """Simple calculator CLI."""
-    pass
+
 
 # Addition command
 @cli.command("add")
@@ -42,7 +60,8 @@ def add_command(a, b):
     Example: ./calCLI.py add 3 5
     """
     result = add(a, b)
-    click.secho(f"The result of adding {a} and {b} is: {result}" , fg="green")
+    click.secho(f"The result of adding {a} and {b} is: {result}", fg="green")
+
 
 # Subtraction command
 @cli.command("subtract")
@@ -59,6 +78,7 @@ def subtract_command(a, b):
     result = subtract(a, b)
     click.secho(f"The result of subtracting {b} from {a} is: {result}", fg="green")
 
+
 # Multiplication command
 @cli.command("multiply")
 @click.argument("a", type=float)
@@ -73,6 +93,7 @@ def multiply_command(a, b):
     """
     result = multiply(a, b)
     click.secho(f"The result of multiplying {a} and {b} is: {result}", fg="red")
+
 
 # Division command
 @cli.command("divide")
@@ -92,6 +113,7 @@ def divide_command(a, b):
     except ValueError as e:
         click.secho(str(e), fg="red")
 
+
 # Square command
 @cli.command("square")
 @click.argument("a", type=float)
@@ -105,6 +127,7 @@ def square_command(a):
     result = square(a)
     click.secho(f"The square of {a} is: {result}", fg="yellow")
 
+
 # Square root command
 @cli.command("square_root")
 @click.argument("a", type=float)
@@ -117,6 +140,7 @@ def square_root_command(a):
     """
     result = square_root(a)
     click.secho(f"The square root of {a} is: {result}", fg="cyan")
+
 
 # Power command
 @cli.command("power")
@@ -133,6 +157,7 @@ def power_command(a, b):
     result = power(a, b)
     click.secho(f"{a} raised to the power of {b} is: {result}", fg="magenta")
 
+
 # Factorial command
 @cli.command("factorial")
 @click.argument("n", type=int)
@@ -145,6 +170,7 @@ def factorial_command(n):
     """
     result = factorial(n)
     click.secho(f"The factorial of {n} is: {result}", fg="green")
+
 
 # GCD command
 @cli.command("gcd")
@@ -161,6 +187,7 @@ def gcd_command(a, b):
     result = gcd(a, b)
     click.secho(f"The GCD of {a} and {b} is: {result}", fg="red")
 
+
 # LCM command
 @cli.command("lcm")
 @click.argument("a", type=int)
@@ -176,6 +203,7 @@ def lcm_command(a, b):
     result = lcm(a, b)
     click.secho(f"The LCM of {a} and {b} is: {result}", fg="blue")
 
+
 # Prime check command
 @cli.command("is_prime")
 @click.argument("n", type=int)
@@ -188,6 +216,7 @@ def is_prime_command(n):
     """
     result = is_prime(n)
     click.secho(f"{n} is {'a prime' if result else 'not a prime'} number.", fg="yellow")
+
 
 # Fibonacci command
 @cli.command("fibonacci")
@@ -202,6 +231,7 @@ def fibonacci_command(n):
     result = fibonacci(n)
     click.secho(f"The Fibonacci sequence up to {n} is: {result}", fg="cyan")
 
+
 # Factorial iterative command
 @cli.command("factorial_iterative")
 @click.argument("n", type=int)
@@ -214,6 +244,7 @@ def factorial_iterative_command(n):
     """
     result = factorial_iterative(n)
     click.secho(f"The factorial of {n} (iterative) is: {result}", fg="magenta")
+
 
 # Factorial recursive command
 @cli.command("factorial_recursive")
@@ -228,6 +259,7 @@ def factorial_recursive_command(n):
     result = factorial_recursive(n)
     click.secho(f"The factorial of {n} (recursive) is: {result}", fg="green")
 
+
 # Even check command
 @cli.command("is_even")
 @click.argument("n", type=int)
@@ -240,6 +272,7 @@ def is_even_command(n):
     """
     result = is_even(n)
     click.secho(f"{n} is {'even' if result else 'not even'} number.", fg="red")
+
 
 # Odd check command
 @cli.command("is_odd")
@@ -254,6 +287,7 @@ def is_odd_command(n):
     result = is_odd(n)
     click.secho(f"{n} is {'odd' if result else 'not odd'} number.", fg="blue")
 
+
 # Prime factorization command
 @cli.command("prime_factorization")
 @click.argument("n", type=int)
@@ -266,6 +300,7 @@ def prime_factorization_command(n):
     """
     result = prime_factorization(n)
     click.secho(f"The prime factorization of {n} is: {result}", fg="yellow")
+
 
 if __name__ == "__main__":
     cli()
