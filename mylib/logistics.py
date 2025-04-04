@@ -5,8 +5,7 @@ and the time taken to travel between them and logistics-related calculations.
 for a given speed.
 """
 
-import math
-import geopy
+
 from geopy.distance import geodesic
 
 # build  a list of 100 cities with their coordinates in united states
@@ -22,44 +21,49 @@ cities_coordinates = {
     "San Antonio": (29.4241, -98.4936),
     "San Diego": (32.7157, -117.1611),
     "Dallas": (32.7767, -96.7970),
-    "San Jose": (37.3382, -121.8863)
+    "San Jose": (37.3382, -121.8863),
 }
 
 
 # build a function to calculate the distance between two coordinates
-def calculate_distance(coord1, coord2):
+def calculate_distance(start_coordinate, end_coordinate):
     """
     Calculate the distance between two coordinates using geopy.
     :param coord1: Tuple of (latitude, longitude) for point 1
     :param coord2: Tuple of (latitude, longitude) for point 2
     :return: Distance in kilometers
     """
-    print(f"Calculating distance between {coord1} and {coord2}")
-    print(geodesic(coord1, coord2).kilometers)
-    return geodesic(coord1, coord2).kilometers
+    print(f"Calculating distance between {start_coordinate} and {end_coordinate}")
+    print(geodesic(start_coordinate, end_coordinate).miles)
+    return geodesic(start_coordinate, end_coordinate).miles
 
-def calculate_time(distance, speed):
+
+def calculate_time(travel_distance, travel_speed):
     """
     Calculate the time taken to travel a distance at a given speed.
     :param distance: Distance in kilometers
     :param speed: Speed in kilometers per hour
     :return: Time in hours
     """
-    if speed <= 0:
-        raise ValueError("Speed must be greater than zero.")
-    return distance / speed
+    # if travel_speed <= 0:
+    #     raise ValueError("Speed must be greater than zero.")
+    print("travel_distance ==============" , travel_distance)
+    print("travel_speed ==============" , travel_speed)
+    return travel_distance / travel_speed
+
 
 # build a function to find co ordinates of city
-def find_coordinates(city):
+def find_coordinates(city_name):
     """
     Find the coordinates of a city.
     :param city: Name of the city
     :return: Tuple of (latitude, longitude)
     """
-    if city in cities_coordinates:
-        return cities_coordinates[city]
+    if city_name in cities_coordinates:
+        return cities_coordinates[city_name]
     else:
-        raise ValueError(f"City '{city}' not found in the list.")
+        raise ValueError(f"City '{city_name}' not found in the list.")
+
 
 # build list of cities with their coordinates
 def list_cities_with_coordinates():
@@ -68,6 +72,28 @@ def list_cities_with_coordinates():
     :return: Dictionary of cities and their coordinates
     """
     return cities_coordinates
+
+
+# build a function to calculate logistics for a given distance and speed
+def calculate_logistics(
+    travel_distance, travel_speed, start_coordinate, end_coordinate
+):
+    """
+    Calculate logistics for a given distance and speed.
+    :param distance: Distance in kilometers
+    :param speed: Speed in kilometers per hour
+    :param coord1: Coordinates of the first city
+    :param coord2: Coordinates of the second city
+    :return: Logistics information
+    """
+    travel_time = calculate_time(travel_distance, travel_speed)
+    return {
+        "distance": travel_distance,
+        "speed": travel_speed,
+        "time": travel_time,
+        "coordinates": (start_coordinate, end_coordinate),
+    }
+
 
 # call all the functions to check if they are working
 if __name__ == "__main__":
