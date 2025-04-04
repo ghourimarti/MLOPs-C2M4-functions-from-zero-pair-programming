@@ -20,26 +20,25 @@ from mylib.calc import (
 )
 import click
 
-""" This module is part of the mylib package.
-This is a simple calculator CLI that performs basic arithmetic operations.
-- Addition
-- Subtraction
-- Multiplication
-- Division
-- Square
-- Square Root
-- Power
-- Factorial
-- gcd
-- lcm
-- is_prime
-- fibonacci
-- factorial_iterative
-- factorial_recursive
-- is_even
-- is_odd
-- prime_factorization
-"""
+# This module is part of the mylib package.
+# This is a simple calculator CLI that performs basic arithmetic operations.
+# - Addition
+# - Subtraction
+# - Multiplication
+# - Division
+# - Square
+# - Square Root
+# - Power
+# - Factorial
+# - gcd
+# - lcm
+# - is_prime
+# - fibonacci
+# - factorial_iterative
+# - factorial_recursive
+# - is_even
+# - is_odd
+# - prime_factorization
 
 
 @click.group()

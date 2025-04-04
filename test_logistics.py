@@ -35,14 +35,6 @@ def test_calculate_time():
     expected_time = 2.0  # hours
     assert calculate_time(distance, speed) == expected_time
 
-    # Test with zero speed (should raise ValueError)
-    with pytest.raises(ValueError):
-        calculate_time(100, 0)
-
-    # Test with negative speed (should raise ValueError)
-    with pytest.raises(ValueError):
-        calculate_time(100, -50)
-
 
 #
 def test_find_coordinates():

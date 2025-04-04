@@ -9,7 +9,7 @@ from mylib.logistics import (
     list_cities_with_coordinates,
 )
 
-#from mylib.wiki import get_wiki_keywords
+from mylib.wiki import wiki_full_text, wiki_search, wiki_summary
 
 
 app = FastAPI()
@@ -47,14 +47,14 @@ async def travel(city1: City, city2: City):
     print(f"city2: {city2}")
     # import ipdb; ipdb.set_trace() #found bug using this!
     # calculate the distance between the two cities
-    distance = calculate_distance(
+    travel_distance = calculate_distance(
         find_coordinates(city1.name), find_coordinates(city2.name)
     )
     # calculate the speed of the car
-    speed = 60
+    travel_speed = 60
     # calculate the time taken to travel the distance
     # using the speed
-    hours = calculate_time(distance, speed)
+    hours = calculate_time(travel_distance, travel_speed)
     print(f"hours: {hours}")
     return {"travel_time": f"{hours} hours"}
 
@@ -79,7 +79,11 @@ async def keywords(city: City):
     Returns back the top 10 keywords from the content of a pagesss
     """
 
-    #return {"keywords": get_wiki_keywords(city.name)}
+    return {
+        "keywords": wiki_search(city.name),
+        "summary": wiki_summary(city.name),
+        "full_text": wiki_full_text(city.name),
+    }
 
 
 if __name__ == "__main__":

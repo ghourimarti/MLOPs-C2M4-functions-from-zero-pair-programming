@@ -47,8 +47,8 @@ def calculate_time(travel_distance, travel_speed):
     """
     # if travel_speed <= 0:
     #     raise ValueError("Speed must be greater than zero.")
-    print("travel_distance ==============" , travel_distance)
-    print("travel_speed ==============" , travel_speed)
+    print("travel_distance ==============", travel_distance)
+    print("travel_speed ==============", travel_speed)
     return travel_distance / travel_speed
 
 
