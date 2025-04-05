@@ -8,4 +8,6 @@ black
 wikipedia
 ipdb
 geopy
+aws
+awscli
 git+https://github.com/LIAAD/yake

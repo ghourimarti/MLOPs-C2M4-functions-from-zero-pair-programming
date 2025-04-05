@@ -7,7 +7,7 @@ from mylib.logistics import (
 )
 import pytest
 
-# Mock data for testing
+# Mock data for testings
 cities_coordinates = {
     "New York": (40.7128, -74.0060),
     "Los Angeles": (34.0522, -118.2437),
